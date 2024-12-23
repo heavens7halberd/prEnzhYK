@@ -22,7 +22,7 @@ def extract_frames(video_path, num_frames=8):
     frames = np.array(frames) / 255.0
     return frames
 
-video_path = "car.mp4"
+video_path = "typing.mp4"
 frames = extract_frames(video_path)
 inputs = processor(list(frames), return_tensors="pt", do_rescale=False)
 
@@ -32,4 +32,4 @@ with torch.no_grad():
 
 predicted_class_idx = logits.argmax(-1).item()
 predicted_class_label = model.config.id2label[predicted_class_idx]
-print("Predicted class:", predicted_class_label)
+print("Прогнозируемый класс:", predicted_class_label)
